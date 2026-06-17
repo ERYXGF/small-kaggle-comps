@@ -133,7 +133,7 @@ def main():
     #Generate test Predictions
     passenger_id_col = validation_data["PassengerId"].copy()
     test_features = validation_data.loc[:, X_train.columns]
-    test_predictions = trained_pipeline.predict(test_features)
+    test_predictions = trained_pipeline.predict(test_features).astype(bool)
 
     #Save the results
     create_submission(
